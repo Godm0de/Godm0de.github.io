@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang=es>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="En unas semanas empieza el curso y resulta que en algunas materias las cosas se ponen mas duras conforme a la Programación.  Mi idea es hacer como un pequeño resumen sobre lo basíco de Java extraido d">
+<meta name="keywords" content="Java ,class,POO,objects">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Repasando Java para el curso">
+<meta property="og:url" content="http://yoursite.com/2019/08/25/Repasando-Java-y-POO/index.html">
+<meta property="og:site_name" content="Godmode&#39;s blog">
+<meta property="og:description" content="En unas semanas empieza el curso y resulta que en algunas materias las cosas se ponen mas duras conforme a la Programación.  Mi idea es hacer como un pequeño resumen sobre lo basíco de Java extraido d">
+<meta property="og:locale" content="es">
+<meta property="og:image" content="https://i.imgur.com/njcATu4.png">
+<meta property="og:updated_time" content="2019-08-27T15:16:34.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Repasando Java para el curso">
+<meta name="twitter:description" content="En unas semanas empieza el curso y resulta que en algunas materias las cosas se ponen mas duras conforme a la Programación.  Mi idea es hacer como un pequeño resumen sobre lo basíco de Java extraido d">
+<meta name="twitter:image" content="https://i.imgur.com/njcATu4.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Repasando Java para el curso</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Inicio</a></li>
+         
+          <li><a href="/about/">Acerca de</a></li>
+         
+          <li><a href="/archives/">Articulos</a></li>
+         
+          <li><a href="/projects_url">Proyectos</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Post Anterior</span>
+      <span id="i-next" class="info" style="display:none;">Post Siguiente</span>
+      <span id="i-top" class="info" style="display:none;">Arriba</span>
+      <span id="i-share" class="info" style="display:none;">Compartir Post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&text=Repasando Java para el curso"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&is_video=false&description=Repasando Java para el curso"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Repasando Java para el curso&body=Check out this article: http://yoursite.com/2019/08/25/Repasando-Java-y-POO/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&name=Repasando Java para el curso&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-World"><span class="toc-number">1.</span> <span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comentarios-en-el-codigo"><span class="toc-number">2.</span> <span class="toc-text">Comentarios en el código</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variables"><span class="toc-number">3.</span> <span class="toc-text">Variables</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Variables-de-tipo-primitivo"><span class="toc-number">3.1.</span> <span class="toc-text">Variables de tipo primitivo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Variables-del-tipo-Objeto"><span class="toc-number">3.2.</span> <span class="toc-text">Variables del tipo Objeto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrays-en-Java"><span class="toc-number">3.3.</span> <span class="toc-text">Arrays en Java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#La-clase-string"><span class="toc-number">3.4.</span> <span class="toc-text">La clase string</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Uso-de-metodos"><span class="toc-number">3.5.</span> <span class="toc-text">Uso de métodos</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constantes"><span class="toc-number">4.</span> <span class="toc-text">Constantes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reglas-de-estilo"><span class="toc-number">5.</span> <span class="toc-text">Reglas de estilo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Documentacion-Javadoc"><span class="toc-number">5.1.</span> <span class="toc-text">Documentacion: Javadoc</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-S-basica-en-Java"><span class="toc-number">6.</span> <span class="toc-text">E/S básica en Java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Estructuras-condicionales"><span class="toc-number">7.</span> <span class="toc-text">Estructuras condicionales</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bucles"><span class="toc-number">8.</span> <span class="toc-text">Bucles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clases"><span class="toc-number">9.</span> <span class="toc-text">Clases</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Modificadores-de-acceso"><span class="toc-number">9.1.</span> <span class="toc-text">Modificadores de acceso</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Modificadores-de-uso-y-ambito"><span class="toc-number">9.2.</span> <span class="toc-text">Modificadores de uso y ámbito</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Metodos"><span class="toc-number">9.3.</span> <span class="toc-text">Métodos</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#El-metodo-equals"><span class="toc-number">9.3.1.</span> <span class="toc-text">El método equals</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#El-metodo-toString"><span class="toc-number">9.3.2.</span> <span class="toc-text">El método toString</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructores"><span class="toc-number">9.4.</span> <span class="toc-text">Constructores</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#La-herencia"><span class="toc-number">10.</span> <span class="toc-text">La herencia</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Polimorfismo"><span class="toc-number">11.</span> <span class="toc-text">Polimorfismo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#La-clase-Object"><span class="toc-number">12.</span> <span class="toc-text">La clase Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clases-Abstractas"><span class="toc-number">13.</span> <span class="toc-text">Clases Abstractas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interfaces"><span class="toc-number">14.</span> <span class="toc-text">Interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Excepciones"><span class="toc-number">15.</span> <span class="toc-text">Excepciones</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Continuara-…"><span class="toc-number">16.</span> <span class="toc-text">Continuara …</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Repasando Java para el curso
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Godmode</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-08-25T15:03:00.000Z" itemprop="datePublished">2019-08-25</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Programacion/">Programación</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java </a>, <a class="tag-link" href="/tags/POO/">POO</a>, <a class="tag-link" href="/tags/class/">class</a>, <a class="tag-link" href="/tags/objects/">objects</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>En unas semanas empieza el curso y resulta que en algunas materias las cosas se ponen mas duras conforme a la Programación. </p>
+<p>Mi idea es hacer como un pequeño resumen sobre lo basíco de Java extraido de unos apuntes de clase que realicé en su día. Esto sería lo equivalente a tres de asignatura resumidos en un post.</p>
+<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWord</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;	</span><br><span class="line">		System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Comentarios-en-el-codigo"><a href="#Comentarios-en-el-codigo" class="headerlink" title="Comentarios en el código"></a>Comentarios en el código</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Comentario de la una linea</span></span><br><span class="line"><span class="comment">/** comenatario de varias lineas</span></span><br><span class="line"><span class="comment">... **/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h2><p><img src="https://i.imgur.com/njcATu4.png" alt="Data Type"></p>
+<h3 id="Variables-de-tipo-primitivo"><a href="#Variables-de-tipo-primitivo" class="headerlink" title="Variables de tipo primitivo"></a>Variables de tipo primitivo</h3><p>Son las variables del tipo más básico de Java, aquellas que podemos encontrar en C y como tal se declaran del mismo modo.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> number = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Variables-del-tipo-Objeto"><a href="#Variables-del-tipo-Objeto" class="headerlink" title="Variables del tipo Objeto"></a>Variables del tipo Objeto</h3><p>Son instanciadas a partir de clases o mejor dicho son objetos. Para crearlas necesitamos instaciar un objeto con el operador <strong>new</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scanner nc = <span class="keyword">new</span> Scanner();</span><br></pre></td></tr></table></figure>
+
+<p>ERROR! No copiar objetos de este modo:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Coche coche = <span class="keyword">new</span> Coche();</span><br><span class="line">Coche nuevoCoche = coche;</span><br></pre></td></tr></table></figure>
+
+<p>En la realidad <em>coche</em> no almacena el objeto en sí sino una referencia a este . Por lo tanto <em>nuevoCoche</em> contiene la misma referencia y si intentas modificar <em>nuevoCoche</em> te salatará un error ya que solo <em>coche</em> esta asociado al objeto.</p>
+<h3 id="Arrays-en-Java"><a href="#Arrays-en-Java" class="headerlink" title="Arrays en Java"></a>Arrays en Java</h3><p>A diferencia de otros lenguajes, en java un array o tabla es un objeto.</p>
+<p>Se puede crear un array siguiendo la siguiente structura:</p>
+<pre><code>&lt;tipo&gt; [] miTabla  = new &lt;tipo&gt; [cantidad];</code></pre><p>Ejemplo:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Char array[] = <span class="keyword">new</span> Char[<span class="number">10</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="La-clase-string"><a href="#La-clase-string" class="headerlink" title="La clase string"></a>La clase string</h3><p>Un objeto de la clase string contiene una cadena de caracteres. Para instanciar un objeto de la clase string y asociarlo a una variable la forma mas sencilla sería:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String cadena1 = <span class="keyword">new</span> String(“Cadena de caracteres”);</span><br></pre></td></tr></table></figure>
+
+<p>También se puede interpretar un objeto String como una variable asociada a una cadena entre doble comillas:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String cadena1 = “Cadena de caracteres”;</span><br></pre></td></tr></table></figure>
+
+<p>Para concadenar cadenas de texto se puede hacer con el operador + :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String cadena1 = “Cadena ” + “de” + “ caracteres”;</span><br><span class="line">String cadena2 = “esto es otra cadena”;</span><br><span class="line">String cadena3 = cadena1 + “y” + cadena2;</span><br></pre></td></tr></table></figure>
+
+<p>La clase string se encuentra en el paquete <strong>java.lang</strong> y alguno de sus métodos mas importantes serían:</p>
+<ul>
+<li><strong>charAnt(int index)</strong>: devuelve el char indicado en el indice.</li>
+<li><strong>equals (Object anObject)</strong>: devuelve el carácter en el índice definido.</li>
+<li><strong>indexOf(int ch)</strong>: devuelve el valor entero de un índice particular de objeto tipo String.</li>
+<li><strong>length()</strong>: devuelve el numero de caracteres por el que esta formado la string.</li>
+<li><strong>replace(char oldChar, char newChar)</strong>: remplaza en una string un caracter por otro.</li>
+<li><strong>split(String regex)</strong>: separa en string sustituyendo el valor indicado por un espacio en blanco.</li>
+<li><strong>substring(int beginIndex)</strong>: devuelve otra string derivada de eliminar el numero de carácteres indicados de izquierda a derecha.</li>
+<li><strong>valueOf(boolean b)</strong>: convierte diferentes tipos de valores en una string.</li>
+</ul>
+<h3 id="Uso-de-metodos"><a href="#Uso-de-metodos" class="headerlink" title="Uso de métodos"></a>Uso de métodos</h3><p>El uso de métodos en Java es muy sencillo solo hay que seguir esta sintaxis:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objeto.metodo(parametros);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Constantes"><a href="#Constantes" class="headerlink" title="Constantes"></a>Constantes</h2><p>Sencillo, se usa el modificador static junto a <strong>final</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> PI = <span class="number">3.14</span>;</span><br></pre></td></tr></table></figure>
+
+<p>Aunque ya sería publica por defecto no esta mal señalarlo y <strong>static</strong> por que no sería necesario crear un objeto de la clase a la que pertenezca para usar dicha variable. Además es aconsejable que en un proyecto todas las constantes esten declaradas dentro de una misma clase.</p>
+<h2 id="Reglas-de-estilo"><a href="#Reglas-de-estilo" class="headerlink" title="Reglas de estilo"></a>Reglas de estilo</h2><p>Las reglas de estilo en Java son bien sencillas:</p>
+<ul>
+<li><strong>Variables y Métodos</strong>: empiezan por letra minúscula, si el argumento es algo del estilo first name, la primera palabra en minúscula y la segunda en mayúcula. Ejemplo: firstName</li>
+<li><strong>Clases y Interfaces</strong>: La primera letra en mayucula, si la clase tiene dos palabras la segunda también empieza por Mayúscula</li>
+<li><strong>Paquetes</strong>: en minuscula y lo suyo es procurar que sea solo una palabra.</li>
+<li><strong>Constantes</strong>: en mayuculas totalmente.Ejemplo: PI, IPMF</li>
+</ul>
+<h3 id="Documentacion-Javadoc"><a href="#Documentacion-Javadoc" class="headerlink" title="Documentacion: Javadoc"></a>Documentacion: Javadoc</h3><h2 id="E-S-basica-en-Java"><a href="#E-S-basica-en-Java" class="headerlink" title="E/S básica en Java"></a>E/S básica en Java</h2><p>En java la E/S se realiza mediante <strong>streams</strong>. Un stream (canal) es un flujo de datos, una conexión entre el programa y la fuente de destino. La información fluye por el canal en serie.</p>
+<p>Existe tres streams:</p>
+<ul>
+<li><p>Streams de <strong>entrada de datos</strong>: Standart Input mediante <strong>System.in</strong></p>
+</li>
+<li><p>Streams de <strong>salida de datos</strong>: Standart Onput mediante <strong>System.out</strong> y <strong>System.err</strong></p>
+</li>
+</ul>
+<p>En la salida de datos tanto System.out como System.err nos permiten hacer escrituras con formato a traves de los metodos print, printf, println…</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(“Cadena de text”);</span><br></pre></td></tr></table></figure>
+
+<p>En la entrada de datos surge un problema, y es que System.in solo maneja bits, lo que haría la gestión de datos demasiado compleja. Como solución, se usa la clase <strong>Scanner</strong> en el paquete <strong>java.util</strong>, la cual, al contrarío que String hay que declarar como se muestra mas adelante.</p>
+<p>Métodos principales de la clase Scanner:</p>
+<ul>
+<li><strong>nextDouble()</strong>: lee la siguiente sentencia como un double y lo devuelve.</li>
+<li><strong>nextLine()</strong>: avanza una linea, evitando problemas de buffer y devuelve lo leido como string.</li>
+<li><strong>nextInt()</strong>: lee la siguiente sentencia como un entero y lo devuelve.</li>
+</ul>
+<p>Implementacion de la clase Scanner paso a paso:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.utils.Scanner <span class="comment">// primero declarar la direccion de la clase Scanner</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ejemplo</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">main</span> <span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	  	<span class="comment">// 1º crear el objeto de la clase Scanner</span></span><br><span class="line">		 Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 2º crear una variable del tipo int y string</span></span><br><span class="line">		<span class="keyword">int</span> i;</span><br><span class="line">		String s;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 3º leer primero el entero y luego la cadena</span></span><br><span class="line">		i = sc.nextInt();</span><br><span class="line">		s = sc.nextLine();</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Estructuras-condicionales"><a href="#Estructuras-condicionales" class="headerlink" title="Estructuras condicionales"></a>Estructuras condicionales</h2><p>El típico <strong>if-else</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a = <span class="number">0</span>)&#123;</span><br><span class="line">	<span class="comment">//Si a es igual 0 pasa esto</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="comment">// Si a es diferente a 0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>El <strong>switch</strong> que muchas veces echo de menos para hacer menus en la terminal:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(argumento)&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>: <span class="comment">//Si se da el argumento == 1 se hace esto</span></span><br><span class="line">    	<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>: <span class="comment">//Si se da el argumento == 2 se hace esto</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>: <span class="comment">//Si se da el argumento == 3 se hace esto</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="comment">//Si no se da ninguno de los anteriores se hace esto</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Por ultimo el <strong>operador ternario</strong> que tanto odio:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resultado = ((condicion)?valor1:valor2)</span><br></pre></td></tr></table></figure>
+
+<p>Que en realidad es lo mismo que escribir todo esto en una linea:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(condicion)&#123;</span><br><span class="line">	resultado = valor1;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	resultado = valor2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Bucles"><a href="#Bucles" class="headerlink" title="Bucles"></a>Bucles</h2><p>También super típicos de C/C++</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>, i&lt;<span class="number">10</span>, i++)&#123;</span><br><span class="line">	<span class="comment">//Se hace 10 veces</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(loop)&#123;	</span><br><span class="line"><span class="comment">//Mientras loop == True se queda aqui</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	<span class="comment">//Al menos se hace una vez mientras a == 1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(a);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Clases"><a href="#Clases" class="headerlink" title="Clases"></a>Clases</h2><p>Crear una clase es tan sencillo como utilizar <strong>class</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">coche</span></span>&#123;</span><br><span class="line">	<span class="comment">// Atributos</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//Metodos</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Modificadores-de-acceso"><a href="#Modificadores-de-acceso" class="headerlink" title="Modificadores de acceso"></a>Modificadores de acceso</h3><p>En Java existen modificadores de acceso, los cuales nos ayudan a encapsular mas o menos un metodo, una clase o una variable/atributo:</p>
+<ul>
+<li><strong>public</strong>: se suele aplicar a clases, métodos y constantes. Estos pueden ser accedidos desde cualquier ámbito.</li>
+<li><strong>private</strong>: se suele aplicar a atributos, es decir a las variables de nuestras clases o a algun que otro metodo que solo queramos usar internamente. </li>
+<li><strong>protected</strong>: permite el acceso a componentes de la misma clase, mismo paquete o clases que heredan de esta.</li>
+<li><strong>default</strong>: es lo mismo que no usar nigún modificador de acceso, las clases y los atributos pasarán a ser publicas por defecto.</li>
+</ul>
+<h3 id="Modificadores-de-uso-y-ambito"><a href="#Modificadores-de-uso-y-ambito" class="headerlink" title="Modificadores de uso y ámbito"></a>Modificadores de uso y ámbito</h3><p>El ámbito define los límites en los que existe una variable o un método.</p>
+<p>Se dividen en:</p>
+<ul>
+<li>De <strong>instancia</strong>: son aquellos elementos (variables o métodos) que pertenece a cada objeto (instancia de objetos). Es el comportamiento por defecto visto hasta ahora.</li>
+<li>De <strong>clase</strong>: son aquellos elementos (variables o métodos) que son únicos para la clase y todas sus estancias (objetos instanciados).</li>
+<li><strong>Locales</strong> o <strong>argumentos</strong>: de ámbito local o locales al método  donde son declarados.</li>
+</ul>
+<p>Para que un método o variable que pertenezca solo a ese ámbito se declararía anteponiendo la palabra <strong>static</strong>.</p>
+<h3 id="Metodos"><a href="#Metodos" class="headerlink" title="Métodos"></a>Métodos</h3><p><strong>OJO!</strong> si todos las variables son publicas se pueden modificar así:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Persona</span></span>&#123;**</span><br><span class="line">	<span class="keyword">public</span> String nombre;</span><br><span class="line">    <span class="keyword">public</span> String apellido;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> edad;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>En el main:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    	Persona empleado = <span class="keyword">new</span> Persona();</span><br><span class="line">        empleado.nombre = <span class="string">"Maria"</span>;</span><br><span class="line">        empleado.apellido = <span class="string">"Garcia"</span>;</span><br><span class="line">        empleado.edad = <span class="number">32</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Pero no es para nada lo más común en Java, lo normal es usar los métodos <strong>get</strong>, <strong>set</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Persona</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String nombre;</span><br><span class="line">    <span class="keyword">private</span> String apellido;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> edad;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNombre</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="keyword">return</span> self.nombre;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getApellido</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="keyword">return</span> self.apellido:</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getEdad</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="keyword">return</span> self.edad;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">setNombre</span><span class="params">(String nombre)</span></span>&#123;</span><br><span class="line">     <span class="keyword">this</span>.nombre = nombre;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApellido</span><span class="params">(String apellido)</span></span>&#123;</span><br><span class="line">     <span class="keyword">this</span>.apellido = apellido;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEdad</span><span class="params">(<span class="keyword">int</span> edad)</span></span>&#123;</span><br><span class="line">     <span class="keyword">this</span>.edad = edad;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>En el main:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    	Persona empleado = <span class="keyword">new</span> Persona()</span><br><span class="line">        empleado.setNombre(<span class="string">"Maria"</span>);</span><br><span class="line">        empleado.setApellido(<span class="string">"Garcia"</span>);</span><br><span class="line">        empleado.setEdad(<span class="number">32</span>);</span><br><span class="line">        System.out.print(empleado) <span class="comment">//Da como salida "Maria Garcia", incluido el espacio en blanco.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Como se puede apreciar <strong>this</strong> sirve para acceder a los atributos de la propia clase y no es necesario escribir void en los argumentos de los métodos get.</p>
+<p>En resumen:</p>
+<ul>
+<li>Los métodos <strong>get</strong> que sirven para obtener el valor de atributos en una clase.</li>
+<li>Los métodos <strong>set</strong> que sirven para modificar el valor de esos atributos.</li>
+<li>Los <strong>constructores</strong> sirven propiamente para construir los objetos y adicionalmente inicializarlos con dichos atributos.</li>
+</ul>
+<p>Por último hay que añadir que Java permite <strong>métodos sobrecargados</strong>, es decir que  varios métodos que se pueden llamar igual siemplre que sus parámetros sean diferentes. Dependiendo de los parametros que introduzcas utilizarás un método u otro.</p>
+<h4 id="El-metodo-equals"><a href="#El-metodo-equals" class="headerlink" title="El método equals"></a>El método equals</h4><p>Se utiliza para comparar si dos objetos son iguales devolviendo un <strong>boolean</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String cadena1 = <span class="keyword">new</span> String(“cadena”);</span><br><span class="line">String cadena2 = <span class="keyword">new</span> String(“cadena”);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(cadena1.equals(cadena2))</span><br><span class="line">	System.out.println(“Son iguales”);</span><br></pre></td></tr></table></figure>
+
+<h4 id="El-metodo-toString"><a href="#El-metodo-toString" class="headerlink" title="El método toString"></a>El método toString</h4><p>El método <strong>toString</strong> es aquel que devuelve el estado de un Objeto como una cadena de texto.</p>
+<p>En las subclases este se tendrá que redefinir:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i=<span class="number">88</span>;</span><br><span class="line">System.out.println(“El numero i es igual a” + i.toString());</span><br></pre></td></tr></table></figure>
+
+<h3 id="Constructores"><a href="#Constructores" class="headerlink" title="Constructores"></a>Constructores</h3><p>Los <strong>constructores</strong> se codifican de este modo:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Persona</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String nombre;</span><br><span class="line">    <span class="keyword">private</span> String apellido;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> edad;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Persona</span><span class="params">(String nombre)</span></span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.nombre = nombre;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Persona</span><span class="params">(String nombre, String apellido)</span></span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.nombre = nombre;</span><br><span class="line">        <span class="keyword">this</span>.apellido = apellido;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Persona</span><span class="params">(String nombre, <span class="keyword">int</span> edad)</span></span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.nombre = nombre;</span><br><span class="line">        <span class="keyword">this</span>.apellido = apellido;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>En el main:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    	Persona empleadoUno = <span class="keyword">new</span> Persona();</span><br><span class="line">        Persona empleadoDos = <span class="keyword">new</span> Persona(<span class="string">"Jhoe"</span>);</span><br><span class="line">        Persona empleadoTres = <span class="keyword">new</span> Persona(<span class="string">"Jhoe"</span>, <span class="string">"Doe"</span>);</span><br><span class="line">        Persona empleadoCuatro = <span class="keyword">new</span> Persona(<span class="string">"Jhoe"</span>, <span class="number">20</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>El constructor por defecto es el siguiente y siempre dispondremos de el por lo que no es necesario codificarle:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Persona</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Pero si no queremos que se acceda a dicho constructor o bien solo las clases que lo heredan, etc. </p>
+<p>Podríamos simplemente <strong>redefinirlo</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Persona</span><span class="params">()</span></span>&#123;&#125; <span class="comment">// o podría ser protected</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="La-herencia"><a href="#La-herencia" class="headerlink" title="La herencia"></a>La herencia</h2><p>Para declarar una subclase utilizando la herencia en Java es tan sencillo como escribir <strong>extends</strong> seguido de la subclase:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subclase</span> <span class="keyword">extends</span> <span class="title">Superclase</span></span>&#123;</span><br><span class="line">	<span class="comment">/*codigo de la Subclase*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Reglas:</p>
+<ul>
+<li><p>Solo se puede heredar de una única clase de una forma directa (<strong>herencia simple</strong>).</p>
+</li>
+<li><p>Si una clase no hereda explícitamente de otra, por defecto heredara de la clase <strong>java.util.Object</strong>.</p>
+</li>
+<li><p>Una subclase hereda todos sus métodos y atributos de su superclase, y de todos sus ancestros, hasta llegar a <strong>Object</strong>.</p>
+</li>
+<li><p>Una subclase puede añadir nuevos elementos (Atributos/Métodos) y también puede modificar “tapar” elementos heredados.</p>
+</li>
+</ul>
+<p>Para modificar un método de la superclase o clase superior, se haría copiando la cabecera y modificando el código de este.</p>
+<p>La herencia crea una jerarquia de clases de forma que los permisos se distribuyen de esta forma:</p>
+<table>
+<thead>
+<tr>
+<th>Access</th>
+<th>Class</th>
+<th>Packet</th>
+<th>Subclass</th>
+<th>Rest</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>no modifier</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+<tr>
+<td>private</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+</tbody></table>
+<p>Los contructores <strong>no se heredan</strong>, a la hora de crear un constructor para nuestra subclase abría que indicar al compilador que parámetros le pertenecen a la superclase.</p>
+<p>Esto se hace usando <strong>super(parámetros)</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Vehiculo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> color;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> numSerie;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//CONSTRUCTOR</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Vehiculo</span> <span class="params">(color, numSerie)</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(); <span class="comment">/*Sin parametros, viene por defecto*/</span></span><br><span class="line">	<span class="keyword">this</span>.color = color;</span><br><span class="line">	<span class="keyword">this</span>.numSerie = 	numSerie;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*…*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Coche</span> <span class="keyword">extends</span> <span class="title">Vehiculo</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> cilindrada</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//CONSTRUCTOR</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Vehiculo</span> <span class="params">(color, numSerie, cilindrada)</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(color, numSerie);</span><br><span class="line">	<span class="keyword">this</span>.cilindrada = cilindrada;</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Polimorfismo"><a href="#Polimorfismo" class="headerlink" title="Polimorfismo"></a>Polimorfismo</h2><p>En una relación de tipo herencia, un objeto de la superclase puede almacenar un objeto de cualquiera de sus subclases.</p>
+<p>Si tenemos tres clases de las cuales Vehiculo actua como la superclase y las otras dos (Camión y Motocicleta) heredan de ella <strong>rescribiendo</strong> uno de sus métodos:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Vehiculo</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String matricula;</span><br><span class="line">    <span class="keyword">private</span> String marca;</span><br><span class="line">    <span class="keyword">private</span> String modelo;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Vehiculo</span><span class="params">(String matricula, String marca, String modelo)</span></span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.matricula = matricula;</span><br><span class="line">        <span class="keyword">this</span>.marca = marca;</span><br><span class="line">        <span class="keyword">this</span>.modelo = modelo;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">mostrarDatos</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="string">"Matricula: "</span> + matricula + <span class="string">"\nMarca: "</span> + marca + <span class="string">"\nModelo: "</span> + <span class="string">"modelo"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> class Camion extends <span class="title">Vehiculo</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> numRuedas;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> numPuertas;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Camion</span><span class="params">(String matricula, String marca, String modelo, <span class="keyword">int</span> numRuedas, <span class="keyword">int</span> numPuertas)</span></span>&#123;</span><br><span class="line">    	<span class="keyword">super</span>(matricula, marca, modelo);</span><br><span class="line">    	<span class="keyword">this</span>.numRuedas = numRuedas;</span><br><span class="line">        <span class="keyword">this</span>.numPuertas = numPuertas;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">mostrarDatos</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="string">"Matricula: "</span> + matricula + <span class="string">"\nMarca: "</span> + marca + <span class="string">"\nModelo: "</span> + <span class="string">"modelo"</span> + <span class="string">"\nRuedas: "</span> + numRuedas + <span class="string">"\nPuertas: "</span> + numPuertas;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> class Motocicleta extends <span class="title">Vehiculo</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> numRuedas;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Motocicleta</span><span class="params">(String matricula, String marca, String modelo, <span class="keyword">int</span> numRuedas)</span></span>&#123;</span><br><span class="line">    	<span class="keyword">super</span>(matricula, marca, modelo);</span><br><span class="line">    	<span class="keyword">this</span>.numRuedas = numRuedas;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">mostrarDatos</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="string">"Matricula: "</span> + matricula + <span class="string">"\nMarca: "</span> + marca + <span class="string">"\nModelo: "</span> + <span class="string">"modelo"</span> + <span class="string">"\nRuedas: "</span> + numRuedas;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Un objeto puede comportarse de un modo u otro dependiendo de como este sea instanciado, normalmente esto se hace de <em>arriba a abajo</em>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    	Vehiculo vehiculo = <span class="keyword">new</span> Vehiculo(); <span class="comment">//Instanciacion normal, objeto de la clase vehiculo</span></span><br><span class="line">        Vehiculo vehiculo = <span class="keyword">new</span> Camion(); <span class="comment">//Objeto de clase Vehiculo instanciado como Camion, si se usan los metodos de Camion se comporta como clase Camion, si se usan los de vehiculos se comportara como vehiculo</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//Esto es util par cosas del estilo</span></span><br><span class="line">        Vehiculo vehiculos[] = <span class="keyword">new</span> Vehiculo[<span class="number">4</span>]</span><br><span class="line">        </span><br><span class="line">        vehiculos[<span class="number">0</span>] = <span class="keyword">new</span> Camion(<span class="string">"X43542"</span>, <span class="string">"Hino"</span>, <span class="string">"500"</span> , <span class="number">6</span>, <span class="number">2</span>);</span><br><span class="line">        vehiculos[<span class="number">1</span>] = <span class="keyword">new</span> Motocicleta(<span class="string">"Y4536"</span>, <span class="string">"Harley"</span>, <span class="string">"Low Rider"</span>, <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Otro modo de aplicar polimorfismo es el contrario, de arriba a abajo (<strong>downcasting</strong>) pero se necesita un moldeado (<strong>casting</strong>) para compilar. Es decir, a la hora de ejecutar el programa para que no de error es necesario indicarle de que tipo es la referencia de dicho objeto.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vehiculo vehiculo = <span class="keyword">new</span> Vehiculo();</span><br><span class="line">Camion camion;</span><br><span class="line">camion = (Camion) vehiculo <span class="comment">// Aunque un pixel sea un punto hace falta indicar a punto</span></span><br></pre></td></tr></table></figure>
+
+<p>Si en tiempo de ejecución se necesita determinar si un objeto es de un cierto tipo se puede usar el operador <strong>instanceof</strong>. Lo cual puede ser necesario para hacer un correcto moldeado al tipo adecuado.</p>
+<p>El polimorfismo influye en la forma en que se resuelve la llamada de un método en ejecución. El método que se ejecuta depende del tipo de objeto en ese momento.</p>
+<h2 id="La-clase-Object"><a href="#La-clase-Object" class="headerlink" title="La clase Object"></a>La clase Object</h2><p>La clase Object es la raiz de la jerarquia de las clases de java. Todas las clases descienden de estas. Además proviene de métodos útiles que se pueden utilizar en todas las clases.</p>
+<p>Javadoc: <a href="https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Object.html" target="_blank" rel="noopener">https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Object.html</a></p>
+<h2 id="Clases-Abstractas"><a href="#Clases-Abstractas" class="headerlink" title="Clases Abstractas"></a>Clases Abstractas</h2><p>Las clases abstractas sirven para crear métodos abstractos que son mas genéricos pero su código es específico para cada clase.</p>
+<p>Las clases abstractas se codifican del siguiente modo:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> class <span class="title">ClaseAbstracta</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">metodoAbstracto</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Reglas:</p>
+<ul>
+<li><p>Un método abstracto es un método sin codificación.</p>
+</li>
+<li><p>Si existe un método abstracto la clase es abstracta.</p>
+</li>
+<li><p>Puede existir una clase abstracta sin declarar métodos.</p>
+</li>
+<li><p>No tiene sentido declarar métodos estáticos o privados en una clase abstracta.</p>
+</li>
+<li><p>No se pueden crear objetos de una clase abstracta, solo se utilizan como superclases en las jerarquías de herencia.</p>
+</li>
+<li><p>Para que sus subclases no sean abstractas, se tienen que codificar los métodos:</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClase</span> <span class="keyword">extends</span> <span class="title">ClaseAbstracta</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">metodoAbstracto</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//implementacion</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="Interfaces"><a href="#Interfaces" class="headerlink" title="Interfaces"></a>Interfaces</h2><p>Una interfaz es un conjunto de métodos abstractos (sin implementación) y valores constantes, que definen un contrato que debe ser cumplido por cualquier clase que lo implemente.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[mod.acceso] interface UnaInterfact extends [lista de interfaces]&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> CONSTANTE = <span class="number">10</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unMetodo</span><span class="params">(Object obj)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Implícitamente las constantes son <strong>public</strong>, <strong>final</strong> y los métodos <strong>public</strong>, <strong>abstract</strong>.</p>
+<p>Reglas:</p>
+<ul>
+<li><p>Una interfaz proporciona un mecanismo para facilitar que su comportamiento (métodos) pueda ser implementado por distintas clases de forma <strong>. ndependiente a la herencia</strong>. La interfaz proporciona un mecanismo para facilitar que su comportamiento (métodos) pueda ser implementado por distintas clases de forma independiente a la herencia.</p>
+</li>
+<li><p>Una interfaz <strong>puede extender mas de una interfaz pero no se puede extender clases</strong>. Una interfaz hereda todas sus constantes y métodos a no ser que estos queden tapados o  sobrescritos.</p>
+</li>
+<li><p>Una interfaz es un tipo de <strong>datos referencia</strong>, y como tal puede utilizarse, tanto en argumentos de métodos como en declaración de variables. Además se aplica el polimorfismo con cualquier clase que la implemente de forma similar a como se hace con la herencia.</p>
+</li>
+</ul>
+<p>Para implementar una interfaz:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Clase</span> <span class="keyword">implements</span> <span class="title">Interfact</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">unMetodo</span><span class="params">(Object obj)</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Excepciones"><a href="#Excepciones" class="headerlink" title="Excepciones"></a>Excepciones</h2><p>Una excepción es una indicación de que se ha encontrado una <strong>situación anómala</strong> durante la ejecución en el programa. En java el tratamiento de errores se encuentra en una clase mas.</p>
+<p>Las excepciones permiten ejecutar el programa y evitar que este se rompa en tiempo de ejecución.</p>
+<p>En Java se pueden hacer dos cosas con excepciones:</p>
+<ul>
+<li>Capturar excepciones con el bloque <strong>try-catch-finally</strong> que permite gestionar los errores producidos durante la ejecución en un conjunto de sentencias.</li>
+<li>Lanzar excepciones:<ul>
+<li>Creando una excepción, un objeto que describa la anomalía en cuestión.</li>
+<li>Indicando que se ha detectado la anomalía con la palabra throw.</li>
+</ul>
+</li>
+</ul>
+<p>Bloque <strong>try-catch-finally</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	<span class="comment">/*Conjunto de lineas a capturar*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(Exception nombreVariable)&#123;</span><br><span class="line">	<span class="comment">/*Se captura la excepción y se trata*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*Puede haber varios catch tratando diferentes excepciones*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">finally</span>&#123;</span><br><span class="line">	<span class="comment">/*Bloque de código que se ejecuta siempre*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>En un main, este bloque se suele escribir dentro de un <strong>do-while</strong> junto a un boolean como condición del while.</p>
+<p>Las excepciones pueden ser detectadas por la JVM o lanzadas por el programador con <strong>throw</strong>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">quoquiet</span> <span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a==<span class="number">0</span>) <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	<span class="keyword">return</span> a/b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Continuara-…"><a href="#Continuara-…" class="headerlink" title="Continuara …"></a>Continuara …</h2>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Inicio</a></li>
+         
+          <li><a href="/about/">Acerca de</a></li>
+         
+          <li><a href="/archives/">Articulos</a></li>
+         
+          <li><a href="/projects_url">Proyectos</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-World"><span class="toc-number">1.</span> <span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comentarios-en-el-codigo"><span class="toc-number">2.</span> <span class="toc-text">Comentarios en el código</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variables"><span class="toc-number">3.</span> <span class="toc-text">Variables</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Variables-de-tipo-primitivo"><span class="toc-number">3.1.</span> <span class="toc-text">Variables de tipo primitivo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Variables-del-tipo-Objeto"><span class="toc-number">3.2.</span> <span class="toc-text">Variables del tipo Objeto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrays-en-Java"><span class="toc-number">3.3.</span> <span class="toc-text">Arrays en Java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#La-clase-string"><span class="toc-number">3.4.</span> <span class="toc-text">La clase string</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Uso-de-metodos"><span class="toc-number">3.5.</span> <span class="toc-text">Uso de métodos</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constantes"><span class="toc-number">4.</span> <span class="toc-text">Constantes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reglas-de-estilo"><span class="toc-number">5.</span> <span class="toc-text">Reglas de estilo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Documentacion-Javadoc"><span class="toc-number">5.1.</span> <span class="toc-text">Documentacion: Javadoc</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-S-basica-en-Java"><span class="toc-number">6.</span> <span class="toc-text">E/S básica en Java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Estructuras-condicionales"><span class="toc-number">7.</span> <span class="toc-text">Estructuras condicionales</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bucles"><span class="toc-number">8.</span> <span class="toc-text">Bucles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clases"><span class="toc-number">9.</span> <span class="toc-text">Clases</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Modificadores-de-acceso"><span class="toc-number">9.1.</span> <span class="toc-text">Modificadores de acceso</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Modificadores-de-uso-y-ambito"><span class="toc-number">9.2.</span> <span class="toc-text">Modificadores de uso y ámbito</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Metodos"><span class="toc-number">9.3.</span> <span class="toc-text">Métodos</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#El-metodo-equals"><span class="toc-number">9.3.1.</span> <span class="toc-text">El método equals</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#El-metodo-toString"><span class="toc-number">9.3.2.</span> <span class="toc-text">El método toString</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructores"><span class="toc-number">9.4.</span> <span class="toc-text">Constructores</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#La-herencia"><span class="toc-number">10.</span> <span class="toc-text">La herencia</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Polimorfismo"><span class="toc-number">11.</span> <span class="toc-text">Polimorfismo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#La-clase-Object"><span class="toc-number">12.</span> <span class="toc-text">La clase Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clases-Abstractas"><span class="toc-number">13.</span> <span class="toc-text">Clases Abstractas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interfaces"><span class="toc-number">14.</span> <span class="toc-text">Interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Excepciones"><span class="toc-number">15.</span> <span class="toc-text">Excepciones</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Continuara-…"><span class="toc-number">16.</span> <span class="toc-text">Continuara …</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&text=Repasando Java para el curso"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&is_video=false&description=Repasando Java para el curso"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Repasando Java para el curso&body=Check out this article: http://yoursite.com/2019/08/25/Repasando-Java-y-POO/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&title=Repasando Java para el curso"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/08/25/Repasando-Java-y-POO/&name=Repasando Java para el curso&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Compartir</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Godmode
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Inicio</a></li>
+         
+          <li><a href="/about/">Acerca de</a></li>
+         
+          <li><a href="/archives/">Articulos</a></li>
+         
+          <li><a href="/projects_url">Proyectos</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
