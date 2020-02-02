@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://i.imgur.com/ZLAGZAo.png">
 <meta property="og:image" content="https://i.imgur.com/S2ea1CD.png">
 <meta property="og:image" content="https://i.imgur.com/CKdZwz5.png">
-<meta property="og:updated_time" content="2020-02-02T12:19:04.739Z">
+<meta property="og:updated_time" content="2020-02-02T16:06:43.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fragmentación IP">
 <meta name="twitter:description" content="Antes de comenzar este artículo me gustaría aclarar que no soy ningún experto en la materia, simplemente un estudiante al que le ha tocado darle mucha caña a esto. También me gustaría hacer una refere">
@@ -350,12 +350,12 @@
 <td>224</td>
 </tr>
 </tbody></table>
-<p>¿Cómo sabemos que lo hemos hecho bien?. Fácil, tan solo hay que <strong>sumar el campo de datos de los fragmentos</strong>. En este caso serían 800 bytes del primer datagrama más los 224 bytes del segundo dando un total de 1024 bytes. Al coincidir con el tamaño de datos del datagrama original se puede deducir que hemos fragmentado correctamente!</p>
+<p>¿Cómo sabemos que lo hemos hecho bien?. Fácil, tan solo hay que <strong>sumar el campo de datos de los fragmentos</strong>. En este caso serían 800 bytes del primer datagrama más los 224 bytes del segundo dando un total de 1024 bytes. Al coincidir con el tamaño del campo datos del datagrama original se puede deducir que hemos fragmentado correctamente!</p>
 <h2 id="Cuando-la-MTU-tiene-valores-raros"><a href="#Cuando-la-MTU-tiene-valores-raros" class="headerlink" title="Cuando la MTU tiene valores raros"></a>Cuando la MTU tiene valores raros</h2><p>En este caso volvemos a repetir el ejercicio anterior pero cambiando el valor de la MTU de la red intermedia.</p>
 <p><img src="https://i.imgur.com/S2ea1CD.png" alt="Data Type"></p>
-<p>Lo que ocurre ahora es que si lo hacemos todo igual que antes no va salir el valor de offset, ya que cuando al restar los 20 de cabecera a la MTU te queda 780. Si dividimos este entre 8 nos queda 97.5 <strong>decimal</strong> cosa que <strong>no es posible</strong>.</p>
-<p>Lo que hacemos para evitar este caso es modificar esa MTU y añadir otro paso al algoritmo anterior.</p>
-<p>Si sabes que tienes que fragmentar entonces restaríamos los 20 bytes de cabecera a la MTU y lo dividiríamos entre 8. Si dicho valor es decimal, entonces tienes que <strong>conseguir el múltiplo de ocho más cercano por debajo de ese valor</strong>. Una vez obtenido se suma 20 y ese sería el nuevo valor de la MTU.</p>
+<p>Lo que ocurre ahora es que si lo hacemos todo igual que antes no va salir el valor de offset. Ya que si restamos los 20 de cabecera a la MTU te quedaría 780 y al dividir este valor entre 8 nos queda 97.5 <strong>decimal</strong> cosa que <strong>no es posible</strong>.</p>
+<p>Lo que hacemos para evitar este caso es modificar esa MTU y añadir otro paso más al algoritmo anterior.</p>
+<p>Partiendo desde el principio, si sabes que tienes que fragmentar entonces restaríamos los 20 bytes de cabecera a la MTU y lo dividiríamos entre 8 (como siempre hacemos). Si dicho valor es decimal, entonces la clave es <strong>conseguir el número múltiplo de ocho más cercano por debajo de ese valor</strong>. Una vez obtenido se suma 20 y ese sería el nuevo valor de la MTU.</p>
 <p>Ejemplo:<br>Nuestra MTU=800 , 800-20 = 780 bytes de datos, 780/8=97.5 (IMPOSIBLE).<br>El valor múltiplo de 8 más cercano por debajo es 776, 776/8=97 (ENTERO), por lo que <strong>MTU = 776 + 20 = 796 bytes</strong>.</p>
 <p>Ahora tan solo hay que repetir todo el proceso anterior con la nueva MTU:</p>
 <table>
@@ -431,10 +431,10 @@
 </tr>
 </tbody></table>
 <p>Comprobación: Datos = 776 + 248 = 1024 bytes</p>
-<h2 id="Cuando-se-fragmenta-varias-veces"><a href="#Cuando-se-fragmenta-varias-veces" class="headerlink" title="Cuando se fragmenta varias veces"></a>Cuando se fragmenta varias veces</h2><p>En este caso nos dan un esquema con dos redes intermedias con sus valores de MTU correspondientes. Se quiere transmitir un datagrama de 1024 bytes de datos a partir de A a D.Nos piden todo lo anterior, primero para el router R1 y segundo en el router R2. Mismo identificador y valor de DF que antes y la cabecera no incorpora opciones extra.</p>
+<h2 id="Cuando-se-fragmenta-varias-veces"><a href="#Cuando-se-fragmenta-varias-veces" class="headerlink" title="Cuando se fragmenta varias veces"></a>Cuando se fragmenta varias veces</h2><p>En este caso nos dan un esquema con dos redes intermedias con sus valores de MTU correspondientes. Se quiere transmitir un datagrama de 1024 bytes de datos a partir de A a D. Nos piden todo lo anterior, primero para el router R1 y segundo en el router R2. Mismo identificador y valor de DF que antes y la cabecera no incorpora opciones extra.</p>
 <p><img src="https://i.imgur.com/CKdZwz5.png" alt="Data Type"></p>
-<p>Fragmentar más de una vez no impone ninguna dificultad, simplemente hay que tener en cuenta que un datagrama ya está fragmentado, es decir, un fragmento puede ser fragmentado de nuevo. Al final, si fragmentas fragmentos es muy probable que dichos fragmentos acaben siendo tan pequeños que no excedan ningún valor de MTU.</p>
-<p>También hay que estar atento por si las MTU son raras y hay que modificarlas como hemos visto antes o no.</p>
+<p>Fragmentar más de una vez no impone ninguna dificultad, simplemente hay que tener en cuenta que un datagrama que ya está fragmentado, puede volver a ser fragmentado de nuevo del mismo modo. Al final, si fragmentas fragmentos es muy probable que dichos fragmentos acaben siendo tan pequeños que no excedan ningún valor de MTU.</p>
+<p>También hay que estar atento por si las MTU son raras y por lo tanto habría que modificarlas como hemos visto antes.</p>
 <p>Siguiendo el ejercicio para el router R1:</p>
 <ul>
 <li>Restamos 20 bytes a la MTU de R1 y nos quedarían 600 bytes de datos que a su vez dividimos entre 8 y nos da 75 (ENTERO). Perfecto, maravilloso!</li>
@@ -592,7 +592,7 @@
 </tr>
 </tbody></table>
 <p><strong>Ojo!</strong> Esta vez el segundo datagrama que es el resultado de fragmentar el primer datagrama de R1, debe tener el bit MF=1, por que <strong>no es el último fragmento</strong>. </p>
-<p>Repitiendo el mismo panorama con R2, sale igual:</p>
+<p>Repitiendo el mismo panorama con el segundo fragmento emitido por R1, saldría:</p>
 <table>
 <thead>
 <tr>
@@ -665,8 +665,8 @@
 <td>48</td>
 </tr>
 </tbody></table>
-<p>Ahora el offset de R2.2.1 es 75, por lo que hay que recordar que estamos fragmentando el segundo datagrama que salió de R1 (este tenía offset con valor 75). Mientras que el offset de R2.2.2 son los 376 bytes de datos entre ocho más 75, dando como valor 122 y acabando así el diagrama.</p>
-<p>En resumen, el datagrama original el cual es el mismo del primer caso ha sido fragmentado por R1, dando lugar a dos fragmentos (R1.1 y R1.2) dichos datagramas a su vez han sido fragmentados por R2 dando lugar a cuatro fragmentos (R1.1 se fragmento en R2.1.1 y R2.1.2 y R1.2 en R2.2.1 y R2.2.2).</p>
+<p>Ahora el offset de R2.2.1 es 75, por lo que hay que recordar que estamos fragmentando el segundo datagrama que salió de R1 (este tenía offset con valor 75). Mientras que el offset de R2.2.2 son los 376 bytes de datos entre ocho más 75, dando como valor 122 y acabando así la fragmentación completa de los datagramas.</p>
+<p>En resumen, el datagrama original, el cual es el mismo del primer caso, ha sido fragmentado por R1, dando lugar a dos fragmentos (R1.1 y R1.2). Dichos datagramas a su vez han sido fragmentados por R2 dando lugar a cuatro fragmentos (R1.1 se fragmento en R2.1.1 y R2.1.2 y R1.2 en R2.2.1 y R2.2.2).</p>
 
   </div>
 </article>
