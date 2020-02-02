@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang=es>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Antes de comenzar este artículo me gustaría aclarar que no soy ningún experto en la materia, simplemente un estudiante al que le ha tocado darle mucha caña a esto. También me gustaría hacer una refere">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fragmentación IP">
+<meta property="og:url" content="https://godm0de.github.io/2019/12/25/Fragmentacion-IP/index.html">
+<meta property="og:site_name" content="Godmode&#39;s blog">
+<meta property="og:description" content="Antes de comenzar este artículo me gustaría aclarar que no soy ningún experto en la materia, simplemente un estudiante al que le ha tocado darle mucha caña a esto. También me gustaría hacer una refere">
+<meta property="og:locale" content="es">
+<meta property="og:image" content="https://www.emertxe.com/wp-content/uploads/2017/02/IP_header.gif">
+<meta property="og:image" content="https://i.imgur.com/ZLAGZAo.png">
+<meta property="og:image" content="https://i.imgur.com/S2ea1CD.png">
+<meta property="og:image" content="https://i.imgur.com/CKdZwz5.png">
+<meta property="og:updated_time" content="2020-02-02T12:19:04.739Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fragmentación IP">
+<meta name="twitter:description" content="Antes de comenzar este artículo me gustaría aclarar que no soy ningún experto en la materia, simplemente un estudiante al que le ha tocado darle mucha caña a esto. También me gustaría hacer una refere">
+<meta name="twitter:image" content="https://www.emertxe.com/wp-content/uploads/2017/02/IP_header.gif">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Fragmentación IP</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Inicio</a></li>
+         
+          <li><a href="/about/">Acerca de</a></li>
+         
+          <li><a href="/archives/">Articulos</a></li>
+         
+          <li><a href="/projects_url">Proyectos</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/08/25/Repaso-de-Java/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Post Anterior</span>
+      <span id="i-next" class="info" style="display:none;">Post Siguiente</span>
+      <span id="i-top" class="info" style="display:none;">Arriba</span>
+      <span id="i-share" class="info" style="display:none;">Compartir Post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&text=Fragmentación IP"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&is_video=false&description=Fragmentación IP"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Fragmentación IP&body=Check out this article: https://godm0de.github.io/2019/12/25/Fragmentacion-IP/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&name=Fragmentación IP&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragmentacion-y-MTU"><span class="toc-number">1.</span> <span class="toc-text">Fragmentación y MTU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Formato-de-cabecera-y-campos-afectados"><span class="toc-number">2.</span> <span class="toc-text">Formato de cabecera y campos afectados</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caso-de-fragmentacion-simple"><span class="toc-number">3.</span> <span class="toc-text">Caso de fragmentación simple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cuando-la-MTU-tiene-valores-raros"><span class="toc-number">4.</span> <span class="toc-text">Cuando la MTU tiene valores raros</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cuando-se-fragmenta-varias-veces"><span class="toc-number">5.</span> <span class="toc-text">Cuando se fragmenta varias veces</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Fragmentación IP
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Godmode</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-12-25T21:52:37.000Z" itemprop="datePublished">2019-12-25</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Antes de comenzar este artículo me gustaría aclarar que no soy ningún experto en la materia, simplemente un estudiante al que le ha tocado darle mucha caña a esto.</p>
+<p>También me gustaría hacer una referencia a este otro <strong><a href="https://www.universidadviu.es/que-es-un-datagrama/" target="_blank" rel="noopener">artículo</a></strong>, ya que explica que es un datagrama. Por  que un término que se suele usar con frecuencia para referirse a un paquete IP suele ser el de <strong>datagrama IP</strong>.</p>
+<h2 id="Fragmentacion-y-MTU"><a href="#Fragmentacion-y-MTU" class="headerlink" title="Fragmentación y MTU"></a>Fragmentación y MTU</h2><p>Cuando hablamos de fragmentación IP nos referimos a un <strong>mecanismo mediante el cual un datagrama IP puede ser dividido en varios fragmentos</strong> dependiendo de ciertos acontecimientos ocurridos a través de la red.  </p>
+<p>Uno de estos acontecimientos podría ser el echo de que el tamaño de un paquete UDP, sea mayor al tamaño del campo de datos que se puede encapsular en un datagrama IP. Otro caso sería que esta vez el tamaño de un  datagrama IP cualquiera supere el valor de la MTU de la red por la que este tiene que pasar.</p>
+<p>La <strong>MTU (Maximun Traffict Unit o Unidad máxima de tráfico)</strong> es un parámetro perteneciente a las redes de conmutación de paquetes, mediante el cual se determina el <strong>tamaño máximo del campo de datos de una trama a nivel de enlace</strong>.</p>
+<p>Por lo tanto, dependiendo de la tecnología usada, existen diferentes valores estándar para este parámetro:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Red</th>
+<th align="center">MTU por Defecto (bytes)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PPP</td>
+<td align="center">296</td>
+</tr>
+<tr>
+<td align="center">X.25</td>
+<td align="center">576</td>
+</tr>
+<tr>
+<td align="center">IEEE 802.3</td>
+<td align="center">1492</td>
+</tr>
+<tr>
+<td align="center">Ethernet</td>
+<td align="center">1500</td>
+</tr>
+<tr>
+<td align="center">FDDI</td>
+<td align="center">4352</td>
+</tr>
+<tr>
+<td align="center">4Mb Token Ring</td>
+<td align="center">4464</td>
+</tr>
+<tr>
+<td align="center">Ethernet Jumbo Frames</td>
+<td align="center">1500-9000</td>
+</tr>
+<tr>
+<td align="center">16Mb Token Ring</td>
+<td align="center">17917</td>
+</tr>
+<tr>
+<td align="center">Hyperchannel</td>
+<td align="center">65535</td>
+</tr>
+</tbody></table>
+<p>Como en nuestro caso, lo que vamos a encapsular casi siempre va a ser un datagrama IP en una trama Ethernet. Para nosotros lo que la MTU en realidad nos está limitando es el tamaño máximo de dicho datagrama.</p>
+<p>Una cosa importante que hay que saber sobre la fragmentación IP es que <strong>se fragmenta en los routers y se reemsambla en los hosts finales</strong> (al menos en cuanto a IP versión cuatro se trata).</p>
+<h2 id="Formato-de-cabecera-y-campos-afectados"><a href="#Formato-de-cabecera-y-campos-afectados" class="headerlink" title="Formato de cabecera y campos afectados"></a>Formato de cabecera y campos afectados</h2><p>En este datagrama se representan los campos de la cabecera del protocolo IP donde los campos en negrita descritos a continuación, serían los campos afectados o importantes para la fragmentación:</p>
+<p><img src="https://www.emertxe.com/wp-content/uploads/2017/02/IP_header.gif" alt="Data Type"></p>
+<ul>
+<li><p>Version (4 bits): medio byte que indica la versión del protocolo. Es el resultado de pasar de binario natural a decimal, versión 4 (0100) y versión 6 (0110).</p>
+</li>
+<li><p>IHL o Header Length (4 bits): la otra mitad del primer byte que indica el tamaño de la cabecera en palabras de 32 bits (lo que equivale a 4 bytes). De hecho este es el motivo por el cual se representa así este diagrama. Sin opciones extra contaríamos cinco palabras, cada una con un valor de 4 bytes, haciendo un total de 20 bytes. Por lo tanto, el valor representado sería un 5 decimal (0101). </p>
+</li>
+<li><p>Type of Service (1 byte): representa una serie de parámetros sobre la calidad de servicio deseada. Prioridad, fiabilidad, etc…</p>
+</li>
+<li><p><strong>Total Length (2 bytes)</strong>: tamaño total contando la cabecera y el campo de datos en bytes o octetos. </p>
+</li>
+<li><p><strong>Identification (2 bytes)</strong>: es un simple id que lo que hace es identificar el datagrama y es útil sobretodo para los casos de fragmentación. Si varios datagramas normalmente tienen el mismo id, esto quiere decir que estos datagramas pertenecen al mismo datagrama original con dicho id.</p>
+</li>
+<li><p><strong>Flags (3 bits)</strong>: </p>
+<ul>
+<li>El primero es un campo reservado</li>
+<li><strong>DF(Don’t Fragment)</strong>: indica si se permite la fragmentación del datagrama o no (0 se permite y 1 no).</li>
+<li><strong>MF(More Fragment)</strong>: indica si hay más fragmentos o también se puede entender como si este flag estuviese activo, dicho datagrama sería un fragmento.</li>
+</ul>
+</li>
+<li><p><strong>Offset (13 bits)</strong>: representa en unidad de 8 bytes, el primer byte a partir del cual empieza el datagrama. Este es el mecanismo que permite el reemsamblado.</p>
+</li>
+<li><p>Time to Live o TTL (1 byte): representa en hops o saltos el tiempo de vida de un datagrama. Este se incializa cuando se crea el datagrama y se decrementa a uno cada vez que este datagrama es procesado por un router. </p>
+</li>
+<li><p>Protocol (1 byte): tipo de protocolo encapsulado en el campo de datos.</p>
+</li>
+<li><p><strong>Checksum (2 bytes)</strong>: mecanismo de control de errores, suma por verificación, se trata de un código de redundancia que se usa para verificar que ningún bit del datagrama haya sido modificado.</p>
+</li>
+<li><p>Source Addres(4 bytes): las famosas direcciones IP que todo el mundo conoce, representadas como decimales separados con puntos. En este caso se trata de la dirección de origen.</p>
+</li>
+<li><p>Destination Address (4 bytes): dirección IP del host destino y errata incluida en el diagrama (XD).</p>
+</li>
+</ul>
+<h2 id="Caso-de-fragmentacion-simple"><a href="#Caso-de-fragmentacion-simple" class="headerlink" title="Caso de fragmentación simple"></a>Caso de fragmentación simple</h2><p>Se quiere transmitir un datagrama IP de 1024 bytes de datos desde el host A al host D. Los datos que nos dan son el bit DF=0 y un Id del datagrama con valor 4a76 (en hexadecimal). Indicar el tamaño total del datagrama, tamaño de cabecera, id de datagrama, offset, bit DF y bit MF de los datagramas que emite R1 tras haber enviado A el datagrama anterior. El tamaño de la cabecera IP no incorpora opciones extra.</p>
+<p><img src="https://i.imgur.com/ZLAGZAo.png" alt="Data Type"></p>
+<p>En primer lugar, cuando el datagrama IP <strong>no incorpora opciones extra</strong> lo que te quieren decir es que la cabecera <strong>siempre tiene un valor de 20 bytes</strong>. Si a esto le sumamos los datos obtendremos un datagrama de tamaño 1044 bytes, cuyos campos más importantes serían:</p>
+<table>
+<thead>
+<tr>
+<th>Datagrama IP original</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>1044</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>Partiendo de esta información, para fragmentar, yo siempre sigo el siguiente algoritmo:</p>
+<ul>
+<li>¿Es el tamaño total del datagrama mayor que la MTU de la red? Sí, se fragmenta. No, no se fragmenta.</li>
+<li>Si hay fragmentación, restar 20 (tamaño cabecera) a la MTU, lo que quede será el tamaño máximo de datos que tendrán los datagramas IP.</li>
+<li>Empezar a formar los fragmentos: el bit DF tiene que ser siempre igual a cero (si no se puede fragmentar, problema acabado), el bit MF valdrá 1 si es un fragmento intermedio y 0 si es el último.</li>
+</ul>
+<p>Con todo esto los cálculos para formar los datagramas se harían del siguiente modo:</p>
+<ul>
+<li><strong>Lo que se fragmenta del datagrama son los datos</strong> por lo tanto habrá que fragmentar esos 1024 bytes de datos.</li>
+<li>Restamos 20 a la MTU cuyo valor es 820 y nos quedan 800 bytes. Teniendo en cuenta que tenemos que fragmentar 1024 bytes, nos queda un datagrama de 800 bytes y otro de 224 bytes.</li>
+<li>A partir de esto formamos los fragmentos (primero el de 800 seguido del de 224). Yo añadiré el tamaño del campo de datos aunque no exista en el formato del datagrama para dar más claridad al asunto.</li>
+<li>Para calcular el offset (valor del bit a partir del cual empieza dicho fragmento): se entiende que el segundo datagrama empieza a partir del bit 800, pero como se expresa en unidades de 8 bytes hay que dividirlo entre 8, resultando un valor de 100.</li>
+</ul>
+<p>Con toda esta información formamos los fragmentos junto a sus campos y flags:</p>
+<table>
+<thead>
+<tr>
+<th>Primer Datagrama fragmentado por R1</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>820</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>800</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Segundo Datagrama fragmentado por R1</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>244</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>224</td>
+</tr>
+</tbody></table>
+<p>¿Cómo sabemos que lo hemos hecho bien?. Fácil, tan solo hay que <strong>sumar el campo de datos de los fragmentos</strong>. En este caso serían 800 bytes del primer datagrama más los 224 bytes del segundo dando un total de 1024 bytes. Al coincidir con el tamaño de datos del datagrama original se puede deducir que hemos fragmentado correctamente!</p>
+<h2 id="Cuando-la-MTU-tiene-valores-raros"><a href="#Cuando-la-MTU-tiene-valores-raros" class="headerlink" title="Cuando la MTU tiene valores raros"></a>Cuando la MTU tiene valores raros</h2><p>En este caso volvemos a repetir el ejercicio anterior pero cambiando el valor de la MTU de la red intermedia.</p>
+<p><img src="https://i.imgur.com/S2ea1CD.png" alt="Data Type"></p>
+<p>Lo que ocurre ahora es que si lo hacemos todo igual que antes no va salir el valor de offset, ya que cuando al restar los 20 de cabecera a la MTU te queda 780. Si dividimos este entre 8 nos queda 97.5 <strong>decimal</strong> cosa que <strong>no es posible</strong>.</p>
+<p>Lo que hacemos para evitar este caso es modificar esa MTU y añadir otro paso al algoritmo anterior.</p>
+<p>Si sabes que tienes que fragmentar entonces restaríamos los 20 bytes de cabecera a la MTU y lo dividiríamos entre 8. Si dicho valor es decimal, entonces tienes que <strong>conseguir el múltiplo de ocho más cercano por debajo de ese valor</strong>. Una vez obtenido se suma 20 y ese sería el nuevo valor de la MTU.</p>
+<p>Ejemplo:<br>Nuestra MTU=800 , 800-20 = 780 bytes de datos, 780/8=97.5 (IMPOSIBLE).<br>El valor múltiplo de 8 más cercano por debajo es 776, 776/8=97 (ENTERO), por lo que <strong>MTU = 776 + 20 = 796 bytes</strong>.</p>
+<p>Ahora tan solo hay que repetir todo el proceso anterior con la nueva MTU:</p>
+<table>
+<thead>
+<tr>
+<th>Primer Datagrama fragmentado por R1</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>796</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>776</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Segundo Datagrama fragmentado por R1</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>268</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>97</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>248</td>
+</tr>
+</tbody></table>
+<p>Comprobación: Datos = 776 + 248 = 1024 bytes</p>
+<h2 id="Cuando-se-fragmenta-varias-veces"><a href="#Cuando-se-fragmenta-varias-veces" class="headerlink" title="Cuando se fragmenta varias veces"></a>Cuando se fragmenta varias veces</h2><p>En este caso nos dan un esquema con dos redes intermedias con sus valores de MTU correspondientes. Se quiere transmitir un datagrama de 1024 bytes de datos a partir de A a D.Nos piden todo lo anterior, primero para el router R1 y segundo en el router R2. Mismo identificador y valor de DF que antes y la cabecera no incorpora opciones extra.</p>
+<p><img src="https://i.imgur.com/CKdZwz5.png" alt="Data Type"></p>
+<p>Fragmentar más de una vez no impone ninguna dificultad, simplemente hay que tener en cuenta que un datagrama ya está fragmentado, es decir, un fragmento puede ser fragmentado de nuevo. Al final, si fragmentas fragmentos es muy probable que dichos fragmentos acaben siendo tan pequeños que no excedan ningún valor de MTU.</p>
+<p>También hay que estar atento por si las MTU son raras y hay que modificarlas como hemos visto antes o no.</p>
+<p>Siguiendo el ejercicio para el router R1:</p>
+<ul>
+<li>Restamos 20 bytes a la MTU de R1 y nos quedarían 600 bytes de datos que a su vez dividimos entre 8 y nos da 75 (ENTERO). Perfecto, maravilloso!</li>
+<li>Se hace igual que el primer caso y los datagramas que nos quedarían serían los siguientes:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Datagrama R1.1: primer datagrama original fragmentado por R1</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>620</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>600</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Datagrama R1.2: segundo datagrama original fragmentado por R1</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>444</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>75</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>424</td>
+</tr>
+</tbody></table>
+<p>Comprobación: Datos = 424 + 600 = 1024 bytes</p>
+<p>Para el router R2:</p>
+<ul>
+<li>Restamos 20 a la MTU de R2 y nos queda 380 bytes de datos que al dividirlo entre 8 sería 47.5. Esa MTU no nos vale, el múltiplo de 8 más cercano por debajo sería 376 bytes de datos. Sumamos los veinte de cabecera y tenemos una MTU de 396 bytes. ¡Esta MTU está mejor!.</li>
+<li>Segundo, todo datagrama IP que pase a esa red tiene que tener como máximo una longitud de 396 bytes, si es menor se deja del mismo modo, sino se fragmentará. En este caso ambas son mayores a 396 así que se fragmentan.</li>
+<li>Se fragmentará los datos de cada datagrama por separado, por lo tanto para el primer datagrama que fragmentó R1, quedará:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Datagrama R2.1.1: primer datagrama R1.1 fragmentado por  R2</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>396</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>376</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Datagrama R2.1.2: segundo datagrama R1.1 fragmentado por R2</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>244</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>47</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>224</td>
+</tr>
+</tbody></table>
+<p><strong>Ojo!</strong> Esta vez el segundo datagrama que es el resultado de fragmentar el primer datagrama de R1, debe tener el bit MF=1, por que <strong>no es el último fragmento</strong>. </p>
+<p>Repitiendo el mismo panorama con R2, sale igual:</p>
+<table>
+<thead>
+<tr>
+<th>Datagrama R2.2.1: primer datagrama R1.2 fragmentado por R2</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>396</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>75</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>376</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Datagrama R1.2.2: segundo datagrama R1.2 fragmentado por R2</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header length</td>
+<td>20bytes</td>
+</tr>
+<tr>
+<td>Identification</td>
+<td>4a76</td>
+</tr>
+<tr>
+<td>Total length</td>
+<td>68</td>
+</tr>
+<tr>
+<td>DF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MF</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Fragment Offset</td>
+<td>122</td>
+</tr>
+<tr>
+<td>Tamaño campo de datos</td>
+<td>48</td>
+</tr>
+</tbody></table>
+<p>Ahora el offset de R2.2.1 es 75, por lo que hay que recordar que estamos fragmentando el segundo datagrama que salió de R1 (este tenía offset con valor 75). Mientras que el offset de R2.2.2 son los 376 bytes de datos entre ocho más 75, dando como valor 122 y acabando así el diagrama.</p>
+<p>En resumen, el datagrama original el cual es el mismo del primer caso ha sido fragmentado por R1, dando lugar a dos fragmentos (R1.1 y R1.2) dichos datagramas a su vez han sido fragmentados por R2 dando lugar a cuatro fragmentos (R1.1 se fragmento en R2.1.1 y R2.1.2 y R1.2 en R2.2.1 y R2.2.2).</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Inicio</a></li>
+         
+          <li><a href="/about/">Acerca de</a></li>
+         
+          <li><a href="/archives/">Articulos</a></li>
+         
+          <li><a href="/projects_url">Proyectos</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragmentacion-y-MTU"><span class="toc-number">1.</span> <span class="toc-text">Fragmentación y MTU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Formato-de-cabecera-y-campos-afectados"><span class="toc-number">2.</span> <span class="toc-text">Formato de cabecera y campos afectados</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caso-de-fragmentacion-simple"><span class="toc-number">3.</span> <span class="toc-text">Caso de fragmentación simple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cuando-la-MTU-tiene-valores-raros"><span class="toc-number">4.</span> <span class="toc-text">Cuando la MTU tiene valores raros</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cuando-se-fragmenta-varias-veces"><span class="toc-number">5.</span> <span class="toc-text">Cuando se fragmenta varias veces</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&text=Fragmentación IP"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&is_video=false&description=Fragmentación IP"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Fragmentación IP&body=Check out this article: https://godm0de.github.io/2019/12/25/Fragmentacion-IP/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&title=Fragmentación IP"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://godm0de.github.io/2019/12/25/Fragmentacion-IP/&name=Fragmentación IP&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Compartir</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Godmode
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Inicio</a></li>
+         
+          <li><a href="/about/">Acerca de</a></li>
+         
+          <li><a href="/archives/">Articulos</a></li>
+         
+          <li><a href="/projects_url">Proyectos</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
